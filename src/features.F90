@@ -21,6 +21,10 @@
 #define WITH_CPCMX 0
 #endif
 
+#ifndef WITH_DRACO
+#define WITH_DRACO 0
+#endif
+
 module xtb_features
    implicit none
    private
@@ -29,7 +33,7 @@ module xtb_features
 
    logical, parameter :: tblite_support = WITH_TBLITE /= 0
    logical, parameter :: cpcmx_support = WITH_CPCMX /= 0
-
+   logical, parameter :: draco_support = WITH_DRACO /= 0
 
 contains
 
@@ -44,6 +48,8 @@ function get_xtb_feature(feature) result(has_feature)
       has_feature = tblite_support
    case("cpcmx")
       has_feature = cpcmx_support
+   case("draco")
+      has_feature = draco_support
    case("color")
       has_feature = color_support()
    case default

@@ -49,18 +49,28 @@ option(
 )
 
 option(
+  'draco',
+  type: 'feature',
+  value: 'auto',
+  yield: true,
+  description: 'include DRACO library for solvation',
+)
+
+option(
   'openmp',
   type: 'boolean',
   value: true,
   yield: true,
   description: 'use OpenMP parallelisation',
 )
+
 option(
   'install_modules',
   type: 'boolean',
   value: false,
   description: 'Install Fortran module files to include directory.',
 )
+
 option(
   'build_name',
   type: 'string',

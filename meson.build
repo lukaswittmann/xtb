@@ -111,6 +111,7 @@ xtb_lib = library(
   fortran_args: [
     '-DWITH_TBLITE=@0@'.format(tblite_dep.found() ? 1 : 0),
     '-DWITH_CPCMX=@0@'.format(cpx_dep.found() ? 1 : 0),
+    '-DWITH_DRACO=@0@'.format(draco_dep.found() ? 1 : 0),
   ],
   link_language: 'fortran',
 )
@@ -140,6 +141,7 @@ xtb_exe = executable(
   fortran_args: [
     '-DWITH_TBLITE=@0@'.format(tblite_dep.found() ? 1 : 0),
     '-DWITH_CPCMX=@0@'.format(cpx_dep.found() ? 1 : 0),
+    '-DWITH_DRACO=@0@'.format(draco_dep.found() ? 1 : 0),
   ],
 )
 

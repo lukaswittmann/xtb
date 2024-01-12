@@ -54,6 +54,11 @@ if(NOT TARGET "cpcmx::cpcmx" AND WITH_CPCMX)
    add_compile_definitions(-DWITH_CPCMX)
 endif()
 
+if(NOT TARGET "draco::draco" AND WITH_DRACO)
+   find_package("draco" REQUIRED)
+   add_compile_definitions(-DWITH_DRACO)
+endif()
+
 if(NOT TARGET "test-drive::test-drive")
   find_package("test-drive" REQUIRED)
 endif()
@@ -107,6 +112,7 @@ if(WITH_OBJECT)
       "mctc-lib::mctc-lib"
       "$<$<BOOL:${WITH_CPCMX}>:cpcmx::cpcmx>"
       "$<$<BOOL:${WITH_TBLITE}>:tblite::tblite>"
+      "$<$<BOOL:${WITH_DRACO}>:draco::draco>"
       "$<$<BOOL:${WITH_OpenMP}>:OpenMP::OpenMP_Fortran>"
    )
 
@@ -149,6 +155,7 @@ target_link_libraries(
    "$<$<BOOL:${WITH_OpenMP}>:OpenMP::OpenMP_Fortran>"
    "mctc-lib::mctc-lib"
    "$<$<BOOL:${WITH_CPCMX}>:cpcmx::cpcmx>"
+   "$<$<BOOL:${WITH_DRACO}>:draco::draco>"
    $<$<BOOL:${WITH_TBLITE}>:tblite::tblite>
 )
 
@@ -190,6 +197,7 @@ if (WITH_OBJECT)
       "mctc-lib::mctc-lib"
       "$<$<BOOL:${WITH_CPCMX}>:cpcmx::cpcmx>"
       "$<$<BOOL:${WITH_TBLITE}>:tblite::tblite>"
+      "$<$<BOOL:${WITH_DRACO}>:draco::draco>"
    )
 
    set_target_properties(

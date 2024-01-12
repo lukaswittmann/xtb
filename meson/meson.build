@@ -215,3 +215,13 @@ cpx_dep = dependency(
   required: get_option('cpcmx')
 )
 lib_deps += cpx_dep
+
+# Get DRACO
+
+draco_dep = dependency(
+  'draco',
+  fallback: ['draco', 'draco_dep'],
+  default_options: ['default_library=static'],
+  required: get_option('draco')
+)
+lib_deps += draco_dep
